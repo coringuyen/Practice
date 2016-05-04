@@ -1,9 +1,8 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-using namespace std;
 
-void CapitalizeFirstLetter(string sentence)
+void CapitalizeFirstLetter(std::string sentence)
 {
 	sentence.front() = toupper(sentence.front());
 	for (int i = 1; i < sentence.length(); ++i)
@@ -15,24 +14,24 @@ void CapitalizeFirstLetter(string sentence)
 		}
 	}
 
-	cout << sentence << endl;
+	std::cout << sentence << std::endl;
 }
 
 void GPS(int o, int p, int q, int r)
 {
-	if (o == q && p == r) { cout << "Here" << endl; }
+	if (o == q && p == r) { std::cout << "Here" << std::endl; }
 
-	if (o == q && r > p) { cout << "N" << endl; }
-	if (o == q && r < p) { cout << "S" << endl; }
+	if (o == q && r > p) { std::cout << "N" << std::endl; }
+	if (o == q && r < p) { std::cout << "S" << std::endl; }
 
-	if (q > o && r == p) { cout << "E" << endl; }
-	if (q < o && r == p) { cout << "W" << endl; }
+	if (q > o && r == p) { std::cout << "E" << std::endl; }
+	if (q < o && r == p) { std::cout << "W" << std::endl; }
 
-	if(q > o && r > p) { cout << "NE" << endl; }
-	if (q < o && r < p) { cout << "SW" << endl; }
+	if(q > o && r > p) { std::cout << "NE" << std::endl; }
+	if (q < o && r < p) { std::cout << "SW" << std::endl; }
 	
-	if (q < o && r > p) { cout << "NW" << endl; }
-	if (q > o && r < p) { cout << "SE" << endl; }
+	if (q < o && r > p) { std::cout << "NW" << std::endl; }
+	if (q > o && r < p) { std::cout << "SE" << std::endl; }
 }
 //
 //void readFile(string path)
@@ -110,20 +109,22 @@ void test_GPS()
 	GPS(-6450, 9254, -6450, 9254);
 
 }
-bool IsPrimeNum(int num)
+bool IsPrimeNum(unsigned long long num)
 {
-	int max = 0;
-	if (num <= 1) { return false; }
+	unsigned long long max;
+	if (num > 100) { max = num / 10; }
+	else max = 10;
+	
+	if (num == 1 || num == 0) return false;
+	
 	if (num >= 9)
 	{
-		for (int i = 3; i <= 10; ++i)
+		for (int i = 3; i < max; ++i)
 		{
 			if (num % i == 0) { return false; }
 		}
 	}
-	if (num == 2 || num % 2 != 0) { return true; }
-	else return false;
-	
+	if (num % 2 != 0 || num == 2) return true;
 }
 int higestPrime(int a, int b)
 {
@@ -133,19 +134,25 @@ int higestPrime(int a, int b)
 			if (i > highest) { highest = i; } // if this prime number is higher than the last highest then replace it
 	return highest;
 }
-int sumOfPrime(int a, double b)
+int sumOfPrime(int a, unsigned long long b)
 {
-	int sumTotal = 0;
+	unsigned long long sumTotal = 0;
 	for (int i = a; i < b; ++i)
+	{
 		if (IsPrimeNum(i))
 		{
+			//std::cout << i << std::endl;
 			sumTotal += i;
 		}
+	}
 	return sumTotal;
 }
 void findPrime(int place)
 {
-	
+	for (int i = 0; i < place; ++i)
+	{
+		if (IsPrimeNum(i)) { std::cout << i << std::endl; }
+	}
 }
 int sumOfMultiple3n5(int num)
 {
@@ -170,13 +177,14 @@ int main()
 	//CapitalizeFirstLetter("The quick BROWN FOx");
 	//CapitalizeFirstLetter("the quick brown fox");
 	//CapitalizeFirstLetter("THE QUICK BROWN FOX");
-
-	if (IsPrimeNum(269)) { cout << "Prime Number" << endl; }
-	else { cout << "Not Prime Number" << endl; }
+	//findPrime(200);
+	if (IsPrimeNum(121)) { std::cout << "Prime Number" << std::endl; }
+	else { std::cout << "Not Prime Number" << std::endl; }
 
 	//cout << higestPrime(1, 10001) << endl;
-	cout << sumOfPrime(1, 2000000) << endl;
+	std::cout << sumOfPrime(1, 2000000) << std::endl;
 	//cout << sumOfMultiple3n5(1000) << endl;
+
 	
 	system("Pause");
 	return 0;

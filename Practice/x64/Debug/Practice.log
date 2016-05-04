@@ -1,0 +1,4 @@
+﻿  main.cpp
+c:\users\tran\desktop\aie workshop\practice\practice\main.cpp(148): warning C4244: 'return': conversion from 'unsigned __int64' to 'int', possible loss of data
+c:\users\tran\desktop\aie workshop\practice\practice\main.cpp(128): warning C4715: 'IsPrimeNum': not all control paths return a value
+  Practice.vcxproj -> C:\Users\Tran\Desktop\AIE WorkShop\Practice\x64\Debug\Practice.exe
