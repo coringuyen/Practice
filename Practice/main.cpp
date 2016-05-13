@@ -166,6 +166,39 @@ int sumOfMultiple3n5(int num)
 	}
 	return sumtotal;
 }
+int factor[10];
+void factorOfNum(int num)
+{
+	int count = 0;
+	int divideTotal = 0;
+	for (int i = 1; i < num; ++i)
+	{
+		if (num % i == 0)
+		{
+			divideTotal = num / i;
+			factor[count] = i;
+			count++;
+		}
+	}
+	for (int i = 0; i < count + 1; ++i)
+	{
+		std::cout << factor[i] << std::endl;
+	}
+}
+
+int highestPrimeFactor(int factor[])
+{
+	int highestPrime = 0;
+	for (int i = 0; i < 4; ++i)
+	{
+		if (IsPrimeNum(factor[i]))
+		{
+			if (factor[i] > highestPrime)
+				highestPrime = factor[i];
+		}
+	}
+	return highestPrime;
+}
 
 int main()
 {
@@ -178,13 +211,15 @@ int main()
 	//CapitalizeFirstLetter("the quick brown fox");
 	//CapitalizeFirstLetter("THE QUICK BROWN FOX");
 	//findPrime(200);
-	if (IsPrimeNum(121)) { std::cout << "Prime Number" << std::endl; }
+	if (IsPrimeNum(19999)) { std::cout << "Prime Number" << std::endl; }
 	else { std::cout << "Not Prime Number" << std::endl; }
 
 	//cout << higestPrime(1, 10001) << endl;
-	std::cout << sumOfPrime(1, 2000000) << std::endl;
+	//std::cout << sumOfPrime(1, 2000000) << std::endl;
 	//cout << sumOfMultiple3n5(1000) << endl;
-
+	//findPrime(200000);
+	factorOfNum(20);
+	std::cout << highestPrimeFactor(factor) << std::endl;
 	
 	system("Pause");
 	return 0;
