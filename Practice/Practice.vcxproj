@@ -119,6 +119,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Prime.cpp" />
+    <ClCompile Include="SumSquareDiff.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Prime.h" />
+    <ClInclude Include="SumSquareDiff.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

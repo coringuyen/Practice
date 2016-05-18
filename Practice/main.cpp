@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include "Prime.h"
+#include "SumSquareDiff.h"
 
 void CapitalizeFirstLetter(std::string sentence)
 {
@@ -33,38 +35,6 @@ void GPS(int o, int p, int q, int r)
 	if (q < o && r > p) { std::cout << "NW" << std::endl; }
 	if (q > o && r < p) { std::cout << "SE" << std::endl; }
 }
-//
-//void readFile(string path)
-//{
-//	string line, number;
-//	int numbers[4];
-//	int count = 0;
-//	ifstream file(path);
-//	if (file.is_open())
-//	{
-//		while (getline(file, line))
-//		{
-//			for (int i = 0; i < line.length; ++i)
-//			{
-//				number.push_back(line.at(i));
-//				if (line.at(i) == ' ')
-//				{
-//					numbers[count] = atoi(number.c_str());
-//					number.clear();
-//					count++;
-//				}
-//			}
-//
-//			for (int i = 0; i < 4; ++i)
-//			{
-//				cout << numbers[i] << endl;
-//			}
-//		}
-//		file.close();
-//	}
-//
-//}
-
 void test_GPS()
 {
 	GPS(8054, 8811, 8054, -9238); // south
@@ -109,51 +79,7 @@ void test_GPS()
 	GPS(-6450, 9254, -6450, 9254);
 
 }
-bool IsPrimeNum(unsigned long long num)
-{
-	unsigned long long max;
-	if (num > 100) { max = num / 10; }
-	else max = 10;
-	
-	if (num == 1 || num == 0) return false;
-	
-	if (num >= 9)
-	{
-		for (int i = 3; i < max; ++i)
-		{
-			if (num % i == 0) { return false; }
-		}
-	}
-	if (num % 2 != 0 || num == 2) return true;
-}
-int higestPrime(int a, int b)
-{
-	int highest = 0; // keep track of the highest Prime number
-	for (int i = a; i <= b; ++i)
-		if (IsPrimeNum(i)) // checking if its a prime number
-			if (i > highest) { highest = i; } // if this prime number is higher than the last highest then replace it
-	return highest;
-}
-int sumOfPrime(int a, unsigned long long b)
-{
-	unsigned long long sumTotal = 0;
-	for (int i = a; i < b; ++i)
-	{
-		if (IsPrimeNum(i))
-		{
-			//std::cout << i << std::endl;
-			sumTotal += i;
-		}
-	}
-	return sumTotal;
-}
-void findPrime(int place)
-{
-	for (int i = 0; i < place; ++i)
-	{
-		if (IsPrimeNum(i)) { std::cout << i << std::endl; }
-	}
-}
+
 int sumOfMultiple3n5(int num)
 {
 	int sumtotal = 0;
@@ -166,39 +92,33 @@ int sumOfMultiple3n5(int num)
 	}
 	return sumtotal;
 }
-int factor[10];
-void factorOfNum(int num)
+
+int smallestMultiple(int num)
 {
-	int count = 0;
-	int divideTotal = 0;
-	for (int i = 1; i < num; ++i)
+	int smallest = 1;
+	bool condition = true;
+	while (condition) 
 	{
-		if (num % i == 0)
+		for (int i = 1; i < num + 1; ++i)
 		{
-			divideTotal = num / i;
-			factor[count] = i;
-			count++;
+			if (smallest % i != 0)
+				break;
+			else
+			{
+				if (i == num)
+				{
+					condition = false;
+					return smallest;
+				}
+			}
 		}
-	}
-	for (int i = 0; i < count + 1; ++i)
-	{
-		std::cout << factor[i] << std::endl;
+		smallest++;
 	}
 }
 
-int highestPrimeFactor(int factor[])
-{
-	int highestPrime = 0;
-	for (int i = 0; i < 4; ++i)
-	{
-		if (IsPrimeNum(factor[i]))
-		{
-			if (factor[i] > highestPrime)
-				highestPrime = factor[i];
-		}
-	}
-	return highestPrime;
-}
+Prime prime;
+SumSquare SSD;
+
 
 int main()
 {
@@ -210,17 +130,18 @@ int main()
 	//CapitalizeFirstLetter("The quick BROWN FOx");
 	//CapitalizeFirstLetter("the quick brown fox");
 	//CapitalizeFirstLetter("THE QUICK BROWN FOX");
+
 	//findPrime(200);
-	if (IsPrimeNum(19999)) { std::cout << "Prime Number" << std::endl; }
+	if (prime.IsPrimeNum(19999)) { std::cout << "Prime Number" << std::endl; }
 	else { std::cout << "Not Prime Number" << std::endl; }
 
 	//cout << higestPrime(1, 10001) << endl;
-	//std::cout << sumOfPrime(1, 2000000) << std::endl;
+	//std::cout << prime.sumOfPrime(1, 2000000) << std::endl;
 	//cout << sumOfMultiple3n5(1000) << endl;
-	//findPrime(200000);
-	factorOfNum(20);
-	std::cout << highestPrimeFactor(factor) << std::endl;
-	
+	//prime.findPrime(2000);
+	//std::cout <<  smallestMultiple(20) << std::endl;
+	//std::cout << SSD.sumSquareDifference(SSD.squareOfSum(100), SSD.sumOfSquare(100)) << std::endl;
+	std::cout << prime.prime10001st() << std::endl;
 	system("Pause");
 	return 0;
 }
