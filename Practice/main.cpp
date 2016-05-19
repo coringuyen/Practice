@@ -1,8 +1,9 @@
 #include <iostream>
-#include <string>
 #include <fstream>
+#include <string>
 #include "Prime.h"
 #include "SumSquareDiff.h"
+#include "PowerDigitSum.h"
 
 void CapitalizeFirstLetter(std::string sentence)
 {
@@ -118,7 +119,7 @@ int smallestMultiple(int num)
 
 Prime prime;
 SumSquare SSD;
-
+powerSum PSD;
 
 int main()
 {
@@ -141,7 +142,10 @@ int main()
 	//prime.findPrime(2000);
 	//std::cout <<  smallestMultiple(20) << std::endl;
 	//std::cout << SSD.sumSquareDifference(SSD.squareOfSum(100), SSD.sumOfSquare(100)) << std::endl;
-	std::cout << prime.prime10001st() << std::endl;
+	//std::cout << prime.prime10001st() << std::endl;
+	std::cout << PSD.powerDigitSum(15) << std::endl;
+
+
 	system("Pause");
 	return 0;
 }

@@ -24,12 +24,18 @@
     <ClCompile Include="SumSquareDiff.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="PowerDigitSum.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Prime.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SumSquareDiff.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PowerDigitSum.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
