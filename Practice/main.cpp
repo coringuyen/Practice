@@ -2,13 +2,12 @@
 #include <fstream>
 #include <string>
 #include "Prime.h"
-#include "SumSquareDiff.h"
-#include "PowerDigitSum.h"
+#include "ProjectEuler.h"
 
 void CapitalizeFirstLetter(std::string sentence)
 {
 	sentence.front() = toupper(sentence.front());
-	for (int i = 1; i < sentence.length(); ++i)
+	for (unsigned i = 1; i < sentence.length(); ++i)
 	{
 		sentence.at(i) = tolower(sentence.at(i));
 		if (sentence.at(i - 1) == ' ')
@@ -81,45 +80,9 @@ void test_GPS()
 
 }
 
-int sumOfMultiple3n5(int num)
-{
-	int sumtotal = 0;
-	for (int i = 0; i < num; ++i)
-	{
-		if (i % 3 == 0 || i % 5 == 0)
-		{
-			sumtotal += i;
-		}
-	}
-	return sumtotal;
-}
-
-int smallestMultiple(int num)
-{
-	int smallest = 1;
-	bool condition = true;
-	while (condition) 
-	{
-		for (int i = 1; i < num + 1; ++i)
-		{
-			if (smallest % i != 0)
-				break;
-			else
-			{
-				if (i == num)
-				{
-					condition = false;
-					return smallest;
-				}
-			}
-		}
-		smallest++;
-	}
-}
 
 Prime prime;
-SumSquare SSD;
-powerSum PSD;
+PE projectEuler;
 
 int main()
 {
@@ -138,13 +101,13 @@ int main()
 
 	//cout << higestPrime(1, 10001) << endl;
 	//std::cout << prime.sumOfPrime(1, 2000000) << std::endl;
-	//cout << sumOfMultiple3n5(1000) << endl;
+	//cout << projectEuler.sumOfMultiple3n5(1000) << endl;
 	//prime.findPrime(2000);
-	//std::cout <<  smallestMultiple(20) << std::endl;
-	//std::cout << SSD.sumSquareDifference(SSD.squareOfSum(100), SSD.sumOfSquare(100)) << std::endl;
+	//std::cout << projectEuler.smallestMultiple(20) << std::endl;
+	//std::cout << projectEuler.sumSquareDifference(projectEuler.squareOfSum(100), projectEuler.sumOfSquare(100)) << std::endl;
 	//std::cout << prime.prime10001st() << std::endl;
-	std::cout << PSD.powerDigitSum(15) << std::endl;
-
+	std::cout << projectEuler.powerDigitSum(15) << std::endl;
+	std::cout << projectEuler.numberLetterCounts("one two three four five") << std::endl;
 
 	system("Pause");
 	return 0;

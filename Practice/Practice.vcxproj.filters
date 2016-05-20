@@ -21,10 +21,7 @@
     <ClCompile Include="Prime.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SumSquareDiff.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="PowerDigitSum.cpp">
+    <ClCompile Include="ProjectEuler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -32,10 +29,7 @@
     <ClInclude Include="Prime.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SumSquareDiff.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PowerDigitSum.h">
+    <ClInclude Include="ProjectEuler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
